@@ -205,7 +205,7 @@ print(pregunta_09())
 
 def pregunta_10():
 
-    return tbl0.groupby("_c1")["_c2"].apply(lambda x: ":".join(map(str, x))).reset_index()
+    return tbl0.sort_values(by="_c2").groupby("_c1")["_c2"].apply(lambda x: ":".join(map(str, x))).reset_index()
 
 print("\nPregunta 10")
 print(pregunta_10())
@@ -228,7 +228,7 @@ print(pregunta_10())
 
 def pregunta_11():
 # parece que la nueva _c4 debe ir sorteada
-    return tbl1.groupby("_c0")["_c4"].apply(lambda x: ",".join(map(str, x))).reset_index()
+    return tbl1.sort_values(by="_c4").groupby("_c0")["_c4"].apply(lambda x: ",".join(map(str, x))).reset_index()
 
 print("\nPregunta 11")
 print(pregunta_11())
@@ -250,6 +250,7 @@ print(pregunta_11())
 
 def pregunta_12():
     # parece que necesita ser sorteado
+    tbl2.sort_values(by='_c5a', inplace=True)
     tbl2['combined'] = tbl2['_c5a'] + ':' + tbl2['_c5b'].astype(str)
     tbl2_grouped = tbl2.groupby('_c0')['combined'].apply(lambda x: ','.join(x)).reset_index()
     tbl2_grouped.columns = ['_c0', '_c5']
