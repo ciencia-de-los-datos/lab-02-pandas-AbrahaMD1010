@@ -140,7 +140,7 @@ print(pregunta_06())
 
 def pregunta_07():
 
-    return tbl0.groupby("_c1")["_c2"].apply(sum)
+    return tbl0.groupby("_c1")["_c2"].sum()
 
 print("\nPregunta 7")
 print(pregunta_07())
@@ -161,9 +161,10 @@ print(pregunta_07())
     """
 
 def pregunta_08():
-    tbl0["suma"] = tbl0["_c0"] + tbl0["_c2"]
+    tbl00 = tbl0.copy()
+    tbl00["suma"] = tbl00["_c0"] + tbl00["_c2"]
 
-    return tbl0
+    return tbl00
 
 print("\nPregunta 8")
 print(pregunta_08())
