@@ -26,8 +26,7 @@ def pregunta_01():
 
     return tbl0.shape[0]
 
-print("\nPregunta 1")
-print(pregunta_01())
+
 
 """
     ¿Cuál es la cantidad de columnas en la tabla `tbl0.tsv`?
@@ -40,9 +39,6 @@ print(pregunta_01())
 def pregunta_02():
 
     return tbl0.shape[1]
-
-print("\nPregunta 2")
-print(pregunta_02())
 
 """
     ¿Cuál es la cantidad de registros por cada letra de la columna _c1 del archivo
@@ -63,8 +59,7 @@ def pregunta_03():
     df.index.name = None
     return df
 
-print("\nPregunta 3")
-print(pregunta_03())
+
 
 """
     Calcule el promedio de _c2 por cada letra de la _c1 del archivo `tbl0.tsv`.
@@ -82,8 +77,7 @@ def pregunta_04():
 
     return tbl0.groupby("_c1")["_c2"].mean()
 
-print("\nPregunta 4")
-print(pregunta_04())
+
 
 """
     Calcule el valor máximo de _c2 por cada letra en la columna _c1 del archivo
@@ -103,8 +97,6 @@ def pregunta_05():
 
     return tbl0.groupby("_c1")["_c2"].max()
 
-print("\nPregunta 5")
-print(pregunta_05())
 
 """
     Retorne una lista con los valores unicos de la columna _c4 de del archivo `tbl1.csv`
@@ -122,8 +114,7 @@ def pregunta_06():
 
     return org
 
-print("\nPregunta 6")
-print(pregunta_06())
+
 
 """
     Calcule la suma de la _c2 por cada letra de la _c1 del archivo `tbl0.tsv`.
@@ -141,9 +132,6 @@ print(pregunta_06())
 def pregunta_07():
 
     return tbl0.groupby("_c1")["_c2"].sum()
-
-print("\nPregunta 7")
-print(pregunta_07())
 
 """
     Agregue una columna llamada `suma` con la suma de _c0 y _c2 al archivo `tbl0.tsv`.
@@ -166,8 +154,7 @@ def pregunta_08():
 
     return tbl00
 
-print("\nPregunta 8")
-print(pregunta_08())
+
 
 """
     Agregue el año como una columna al archivo `tbl0.tsv`.
@@ -189,8 +176,7 @@ def pregunta_09():
 
     return tbl0
 
-print("\nPregunta 9")
-print(pregunta_09())
+
 
 """
     Construya una tabla que contenga _c1 y una lista separada por ':' de los valores de
@@ -210,8 +196,6 @@ def pregunta_10():
 
     return tbl0.sort_values(by="_c2").groupby("_c1")["_c2"].apply(lambda x: ":".join(map(str, x))).reset_index()
 
-print("\nPregunta 10")
-print(pregunta_10())
 
 """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
@@ -233,8 +217,7 @@ def pregunta_11():
 # parece que la nueva _c4 debe ir sorteada
     return tbl1.sort_values(by="_c4").groupby("_c0")["_c4"].apply(lambda x: ",".join(map(str, x))).reset_index()
 
-print("\nPregunta 11")
-print(pregunta_11())
+
 
 """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
@@ -260,8 +243,7 @@ def pregunta_12():
 
     return tbl2_grouped
 
-print("\nPregunta 12")
-print(pregunta_12())
+
 
 """
     Si la columna _c0 es la clave en los archivos `tbl0.tsv` y `tbl2.tsv`, compute la
@@ -281,5 +263,3 @@ def pregunta_13():
 
     return tbl0.merge(tbl2, on='_c0').groupby('_c1')['_c5b'].sum()
 
-print("\nPregunta 13")
-print(pregunta_13())
