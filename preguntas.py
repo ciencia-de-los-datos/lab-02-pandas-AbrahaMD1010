@@ -194,7 +194,9 @@ def pregunta_09():
 
 def pregunta_10():
 
-    return tbl0.sort_values(by="_c2").groupby("_c1")["_c2"].apply(lambda x: ":".join(map(str, x))).reset_index()
+    return tbl0.sort_values(by="_c2").groupby("_c1")["_c2"].apply(lambda x: ":".join(map(str, x))).reset_index().rename(columns={"_c1": "_c0","_c2": "_c1"})
+
+print(pregunta_10())
 
 
 """
