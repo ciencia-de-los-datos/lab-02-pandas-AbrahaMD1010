@@ -24,7 +24,7 @@ tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
     """
 def pregunta_01():
 
-    return len(tbl0)
+    return tbl0.shape[0]
 
 print("\nPregunta 1")
 print(pregunta_01())
@@ -39,7 +39,7 @@ print(pregunta_01())
 
 def pregunta_02():
 
-    return len(tbl0.columns)
+    return tbl0.shape[1]
 
 print("\nPregunta 2")
 print(pregunta_02())
@@ -59,9 +59,9 @@ print(pregunta_02())
     """
 
 def pregunta_03():
-
-
-    return tbl0["_c1"].value_counts().sort_index()
+    df = tbl0["_c1"].value_counts().sort_index()
+    df.index.name = None
+    return df
 
 print("\nPregunta 3")
 print(pregunta_03())
@@ -80,7 +80,7 @@ print(pregunta_03())
 
 def pregunta_04():
 
-    return tbl0.groupby("_c1")["_c2"].apply(lambda x: sum(x)/len(x))
+    return tbl0.groupby("_c1")["_c2"].mean()
 
 print("\nPregunta 4")
 print(pregunta_04())
@@ -101,7 +101,7 @@ print(pregunta_04())
 
 def pregunta_05():
 
-    return tbl0.groupby("_c1")["_c2"].apply(max)
+    return tbl0.groupby("_c1")["_c2"].max()
 
 print("\nPregunta 5")
 print(pregunta_05())
