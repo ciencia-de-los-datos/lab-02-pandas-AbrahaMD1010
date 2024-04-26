@@ -268,3 +268,5 @@ def pregunta_13():
 
     return tbl0.merge(tbl2, on='_c0').groupby('_c1')['_c5b'].sum()
 
+
+
